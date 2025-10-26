@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const videos = ['/videos/2.mp4', '/videos/4.mp4'];
+
+  useEffect(() => {
+    const videoElement = document.querySelector('.video-background');
+    
+    const handleVideoEnd = () => {
+      setCurrentVideo((prev) => (prev + 1) % videos.length);
+    };
+
+    if (videoElement) {
+      videoElement.addEventListener('ended', handleVideoEnd);
+    }
+
+    return () => {
+      if (videoElement) {
+        videoElement.removeEventListener('ended', handleVideoEnd);
+      }
+    };
+  }, [currentVideo]);
+
   return (
     <div className="App">
       <header className="header">
@@ -18,10 +39,13 @@ function App() {
 
       <main>
         <section id="home" className="hero">
-          <div className="container">
-            <h1>LifeNova SMART Diary</h1>
-            <p>Your intelligent personal diary companion</p>
-            <button className="cta-button">Get Started</button>
+          <video key={currentVideo} className="video-background" autoPlay muted>
+            <source src={videos[currentVideo]} type="video/mp4" />
+          </video>
+          <div className="hero-content">
+            <h1>Welcome To <span>LifeNova</span></h1>
+            <p>SMART Diary - Your Intelligent Personal Journal</p>
+            <a href="#about" className="cta-button">Read More</a>
           </div>
         </section>
 
