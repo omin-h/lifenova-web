@@ -3,39 +3,57 @@ import React from 'react';
 const Team = () => {
   const teamMembers = [
     {
-      name: 'Prof. Koliya Pulasinghe',
+      name: 'Dr. Samantha Rajapaksha',
       role: 'SUPERVISOR',
-      position: 'Senior Professor',
-      email: 'koliya.p@sliit.lk',
-      faculty: 'FACULTY OF COMPUTING | INFORMATION TECHNOLOGY',
-      image: '/assets/img/supervisor.jpg',
+      position: 'Head of Department',
+      email: 'samantha.r@sliit.lk',
+      faculty: 'FACULTY OF COMPUTING DEPARTMENT OF INFORMATION TECHNOLOGY',
+      image: 'src/assets/img/supervisor.png',
       supervisor: true
     },
     {
-      name: 'Ms. Poorna Panduwawala',
+      name: 'Ms. Aparna Jayawardena',
       role: 'Co-SUPERVISOR',
       position: 'Assistant Lecturer',
-      email: 'poorna.p@sliit.lk',
+      email: 'aparna.j@sliit.lk',
       faculty: 'FACULTY OF COMPUTING | INFORMATION TECHNOLOGY',
-      image: '/assets/img/co-supervisor.jpg',
+      image: 'src/assets/img/co-supervisor.png',
       supervisor: true
     },
     {
-      name: 'Jayathunga T.M.',
+      name: 'Hemapriya K. K. V. O. D.',
       role: 'TEAM Leader',
-      studentId: 'IT20146238',
-      email: 'thiroshmadhusha0520@gmail.com',
+      studentId: 'IT21801372',
+      email: 'it21801372@sliit.lk',
       faculty: 'FACULTY OF COMPUTING | INFORMATION TECHNOLOGY',
-      image: '/assets/img/team-leader.jpg',
+      image: 'src/assets/img/member1.png',
       supervisor: false
     },
     {
-      name: 'Semini J.P.D.L.',
+      name: 'Anuruddhika S.K.D.',
       role: 'TEAM Member',
-      studentId: 'IT20241346',
-      email: 'dulmilaknaasewmz9811@gmail.com',
+      studentId: 'IT21099090',
+      email: 'it21099090@sliit.lk',
       faculty: 'FACULTY OF COMPUTING | INFORMATION TECHNOLOGY',
-      image: '/assets/img/team-member.jpg',
+      image: 'src/assets/img/member2.png',
+      supervisor: false
+    },
+    {
+      name: 'Idamewaththa I.W.S.M.B.',
+      role: 'TEAM Member',
+      studentId: 'IT21258930',
+      email: 'it21258930@sliit.lk',
+      faculty: 'FACULTY OF COMPUTING | INFORMATION TECHNOLOGY',
+      image: 'src/assets/img/member3.png',
+      supervisor: false
+    },
+    {
+      name: 'Herath H.M.D.P.',
+      role: 'TEAM Member',
+      studentId: 'IT21389542',
+      email: 'it21389542@sliit.lk',
+      faculty: 'FACULTY OF COMPUTING | INFORMATION TECHNOLOGY',
+      image: 'src/assets/img/member4.png',
       supervisor: false
     }
   ];

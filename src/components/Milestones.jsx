@@ -14,7 +14,7 @@ const Milestones = () => {
       title: 'Progress Presentation 1',
       description: '50% progress presentation of the research project.',
       marks: '15%',
-      active: true
+      active: false
     },
     {
       icon: '📈',
@@ -41,8 +41,8 @@ const Milestones = () => {
       icon: '👥',
       title: 'Viva',
       description: 'Final viva voce presentation and defense.',
-      marks: '10%',
-      active: false
+      marks: '20%',
+      active: true
     }
   ];
 

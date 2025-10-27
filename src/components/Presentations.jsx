@@ -33,7 +33,7 @@ const Presentations = () => {
         </div>
         <div className="row">
           <div className="col-lg-6 presentation-image">
-            <img src="/assets/img/presentation.jpg" alt="Presentations" className="img-fluid" />
+            <img src="src/assets/img/presentation.jpg" alt="Presentations" className="img-fluid" />
           </div>
           <div className="col-lg-6">
             <div className="presentation-list">
