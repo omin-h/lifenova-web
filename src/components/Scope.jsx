@@ -58,13 +58,49 @@ const Scope = () => {
     ),
     tools: (
       <div>
-        <h3>Tools & Technologies</h3>
+        <h3>Tools and Technologies for Life Nova</h3>
+        <h4>Natural Language Processing (NLP) Frameworks</h4>
         <ul>
-          <li>Python, TensorFlow, Keras</li>
-          <li>React, Node.js</li>
-          <li>Google Cloud Vision API</li>
-          <li>Speech Synthesis Libraries</li>
-          <li>Other relevant open-source tools</li>
+          <li><strong>spaCy</strong> – for language understanding and intent recognition</li>
+          <li><strong>NLTK</strong> – for text processing and linguistic analysis</li>
+        </ul>
+        <h4>Speech Recognition APIs</h4>
+        <ul>
+          <li><strong>Google Speech-to-Text</strong> – for accurate voice input</li>
+          <li><strong>Mozilla DeepSpeech</strong> – open-source speech recognition</li>
+        </ul>
+        <h4>Text-to-Speech (TTS) Engines</h4>
+        <ul>
+          <li><strong>Amazon Polly</strong> – converts text into natural-sounding speech</li>
+          <li><strong>pyttsx3</strong> – offline TTS for Python applications</li>
+        </ul>
+        <h4>Machine Learning Libraries</h4>
+        <ul>
+          <li><strong>TensorFlow</strong> – for predictive analytics and adaptive scheduling</li>
+          <li><strong>PyTorch</strong> – for modeling user behavior and personalization</li>
+        </ul>
+        <h4>Data Storage & Backend</h4>
+        <ul>
+          <li><strong>SQLite</strong> – lightweight local database for storing diary entries</li>
+          <li><strong>Firebase</strong> – cloud database and real-time syncing</li>
+        </ul>
+        <h4>User Interface & Frontend Development</h4>
+        <ul>
+          <li><strong>Flutter</strong> – alternative for building accessible and responsive UIs</li>
+        </ul>
+        <h4>Accessibility Tools & Testing</h4>
+        <ul>
+          <li><strong>Screen Reader Compatibility Testing</strong> – ensures usability for visually impaired users</li>
+          <li><strong>ARIA (Accessible Rich Internet Applications) Attributes</strong> – improves semantic accessibility</li>
+          <li><strong>Voice Navigation Simulations</strong> – tests hands-free interaction flows</li>
+        </ul>
+        <h4>Version Control & Collaboration</h4>
+        <ul>
+          <li><strong>Git & GitHub</strong> – source code management and team collaboration</li>
+        </ul>
+        <h4>Development Methodology</h4>
+        <ul>
+          <li><strong>Agile & Iterative Prototyping</strong> – rapid development and user feedback integration</li>
         </ul>
       </div>
     ),
