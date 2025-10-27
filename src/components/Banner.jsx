@@ -8,7 +8,7 @@ const Banner = () => {
           <h2 style={{ color: '#34495e' }}>Banner</h2>
         </div>
         <div className="banner-image">
-          <img src="public/img/research-banner.png" alt="Research Banner" className="img-fluid" />
+          <img src="/img/research-banner.png" alt="Research Banner" className="img-fluid" />
         </div>
       </div>
     </section>
