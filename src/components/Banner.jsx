@@ -5,10 +5,10 @@ const Banner = () => {
     <section id="banner" className="banner">
       <div className="container">
         <div className="section-title">
-          <h2>Banner</h2>
+          <h2 style={{ color: '#34495e' }}>Banner</h2>
         </div>
         <div className="banner-image">
-          <img src="/assets/img/research-banner.jpg" alt="Research Banner" className="img-fluid" />
+          <img src="src/assets/img/research-banner.png" alt="Research Banner" className="img-fluid" />
         </div>
       </div>
     </section>
