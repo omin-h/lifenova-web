@@ -7,32 +7,32 @@ const Documentation = () => {
     charter: {
       title: 'Project Charter',
       description: 'Click Here to View the Project Charter Document',
-      link: '2023-198_Project_Charter'
+      link: 'https://drive.google.com/file/d/14hpzy_H8zi8qAcvXJ6jMW9-6bzSyGAqb/view?usp=drive_link'
     },
     proposal: {
-      title: 'Proposal Document',
-      description: 'Click Here to View the Proposal Document',
-      link: '2023-198_Proposal_Document'
+      title: 'Proposal Documents',
+      description: 'Click Here to View the Proposal Documents',
+      link: 'https://drive.google.com/drive/folders/1363TV_MgPga4X96zgyKHRqT6-6f16JTf?usp=drive_link'
     },
     logbook: {
-      title: 'Research Logbook',
-      description: 'Click Here to View the Research Logbook',
+      title: 'Research Logbooks',
+      description: 'Click Here to View the Research Logbooks',
       link: '2023-198_Research_Logbook'
     },
     status1: {
       title: 'Status Document I',
       description: 'Click Here to View Status Document I',
-      link: '2023-198_Status_Document_I'
+      link: 'https://drive.google.com/file/d/12yVGeFlLlvXz-4dGKz1Nl_nQ1YzGaHGN/view?usp=drive_link'
     },
     status2: {
       title: 'Status Document II',
       description: 'Click Here to View Status Document II',
-      link: '2023-198_Status_Document_II'
+      link: 'https://docs.google.com/spreadsheets/d/1qyCcGWYBAUSA8XxIE5lDKwZl8nkCE9dB/edit?usp=drive_link&ouid=104117928198051178525&rtpof=true&sd=true'
     },
     final: {
-      title: 'Final Report',
-      description: 'Click Here to View the Final Report',
-      link: '2023-198_Final_Report'
+      title: 'Final Reports',
+      description: 'Click Here to View the Final Reports',
+      link: 'https://drive.google.com/drive/folders/1CKE44RSDgy6m8FFL6aFAkpiHsSeGSu-N?usp=drive_link'
     }
   };
 
@@ -67,9 +67,24 @@ const Documentation = () => {
           </div>
           <div className="col-lg-9">
             <div className="doc-content">
-              <h3>{documents[activeDoc].title}</h3>
+              {documents[activeDoc].link ? (
+                <a 
+                  href={
+                    documents[activeDoc].link.startsWith('http')
+                      ? documents[activeDoc].link
+                      : `/documents/${documents[activeDoc].link}`
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                  className="doc-link"
+                >
+                  <h3>📄 {documents[activeDoc].title}</h3>
+                </a>
+              ) : (
+                <h3>📄 {documents[activeDoc].title}</h3>
+              )}
               <p>{documents[activeDoc].description}</p>
-              <a href="#" className="doc-link">📄 {documents[activeDoc].link}</a>
             </div>
           </div>
         </div>
