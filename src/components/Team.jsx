@@ -8,7 +8,7 @@ const Team = () => {
       position: 'Head of Department',
       email: 'samantha.r@sliit.lk',
       faculty: 'FACULTY OF COMPUTING DEPARTMENT OF INFORMATION TECHNOLOGY',
-      image: 'src/assets/img/supervisor.png',
+      image: 'public/static/images/supervisor.png',
       supervisor: true
     },
     {
@@ -17,7 +17,7 @@ const Team = () => {
       position: 'Assistant Lecturer',
       email: 'aparna.j@sliit.lk',
       faculty: 'FACULTY OF COMPUTING | INFORMATION TECHNOLOGY',
-      image: 'src/assets/img/co-supervisor.png',
+      image: 'public/static/images/co-supervisor.png',
       supervisor: true
     },
     {
@@ -26,7 +26,7 @@ const Team = () => {
       studentId: 'IT21801372',
       email: 'it21801372@sliit.lk',
       faculty: 'FACULTY OF COMPUTING | INFORMATION TECHNOLOGY',
-      image: 'src/assets/img/member1.png',
+      image: 'public/static/images//member1.png',
       supervisor: false
     },
     {
@@ -35,7 +35,7 @@ const Team = () => {
       studentId: 'IT21099090',
       email: 'it21099090@sliit.lk',
       faculty: 'FACULTY OF COMPUTING | INFORMATION TECHNOLOGY',
-      image: 'src/assets/img/member2.png',
+      image: 'public/static/images/member2.png',
       supervisor: false
     },
     {
@@ -44,7 +44,7 @@ const Team = () => {
       studentId: 'IT21258930',
       email: 'it21258930@sliit.lk',
       faculty: 'FACULTY OF COMPUTING | INFORMATION TECHNOLOGY',
-      image: 'src/assets/img/member3.png',
+      image: 'public/static/images/member3.png',
       supervisor: false
     },
     {
@@ -53,7 +53,7 @@ const Team = () => {
       studentId: 'IT21389542',
       email: 'it21389542@sliit.lk',
       faculty: 'FACULTY OF COMPUTING | INFORMATION TECHNOLOGY',
-      image: 'src/assets/img/member4.png',
+      image: 'public/static/images/member4.png',
       supervisor: false
     }
   ];
