@@ -36,7 +36,7 @@ const Presentations = () => {
         </div>
         <div className="row">
           <div className="col-lg-6 presentation-image">
-            <img src="public/static/images/presentation.jpg" alt="Presentations" className="img-fluid" />
+            <img src="static/images/presentation.jpg" alt="Presentations" className="img-fluid" />
           </div>
           <div className="col-lg-6">
             <div className="presentation-list">
