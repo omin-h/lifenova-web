@@ -11,7 +11,7 @@ body {
 }
 
 a {
-  color: #178178;
+  color: #2196f3;
   text-decoration: none;
 }
 
@@ -69,7 +69,7 @@ section {
   display: block;
   width: 40px;
   height: 3px;
-  background: #178178;
+  background: #2196f3;
   bottom: 0;
   left: calc(50% - 20px);
 }
@@ -99,7 +99,7 @@ section {
 
 #topbar .contact-info i,
 #topbar .contact-info svg {
-  color: #178178;
+  color: #2196f3;
   padding-right: 4px;
   margin-left: 15px;
   line-height: 0;
@@ -114,7 +114,7 @@ section {
 }
 
 #topbar .social-links a:hover {
-  color: #178178;
+  color: #2196f3;
 }
 
 /* Header */
@@ -173,8 +173,8 @@ section {
 
 .navbar a:hover,
 .navbar .active {
-  color: #178178;
-  border-color: #178178;
+  color: #2196f3;
+  border-color: #2196f3;
 }
 
 /* Mobile Navigation */
@@ -248,7 +248,7 @@ section {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #178178;
+  background: #2196f3;
   width: 40px;
   height: 40px;
   border-radius: 4px;
