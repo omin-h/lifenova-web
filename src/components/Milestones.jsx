@@ -25,22 +25,22 @@ const Milestones = () => {
     },
     {
       icon: '🎯',
-      title: 'Demonstration',
-      description: 'Final demonstration of the working system.',
-      marks: '20%',
+      title: 'Research Paper',
+      description: 'Submission of the research paper for review.',
+      marks: '10%',
       active: false
     },
     {
       icon: '📋',
-      title: 'Final Assessment',
+      title: 'Final Report',
       description: 'Final report submission and evaluation.',
-      marks: '25%',
+      marks: '19%',
       active: false
     },
     {
       icon: '👥',
-      title: 'Viva',
-      description: 'Final viva voce presentation and defense.',
+      title: 'Final Presentation and VIVA',
+      description: 'Final presentation and Viva With Demonstration.',
       marks: '20%',
       active: true
     }

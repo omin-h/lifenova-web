@@ -36,7 +36,12 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <h1>LifeNova</h1>
+        <h1 
+          onClick={() => scrollToSection('home')} 
+          style={{ cursor: 'pointer' }}
+        >
+          LifeNova
+        </h1>
         <nav>
           <a 
             href="#home" 

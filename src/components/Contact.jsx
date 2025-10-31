@@ -1,4 +1,7 @@
 import React from 'react';
+import locationIcon from '../assets/social-media-icons/Location.png';
+import emailIcon from '../assets/social-media-icons/Email.png';
+import phoneIcon from '../assets/social-media-icons/Phone.png';
 
 const Contact = () => {
   return (
@@ -23,24 +26,34 @@ const Contact = () => {
           <div className="col-lg-6">
             <div className="contact-info">
               <div className="info-item">
-                <div className="info-icon">📍</div>
+                <div className="info-icon">
+                  <img src={locationIcon} alt="Location" />
+                </div>
                 <div className="info-content">
                   <h4>Location:</h4>
                   <p>SLIIT Malabe Campus, New Kandy Rd, Malabe, Sri Lanka</p>
                 </div>
               </div>
               <div className="info-item">
-                <div className="info-icon">✉️</div>
+                <div className="info-icon">
+                  <img src={emailIcon} alt="Email" />
+                </div>
                 <div className="info-content">
                   <h4>Email:</h4>
-                  <p>lifenovaofficial@gmail.com</p>
+                  <p>
+                    <a href="mailto:research.lifenova@gmail.com" style={{ color: '#16a085', textDecoration: 'none' }}>
+                      research.lifenova@gmail.com
+                    </a>
+                  </p>
                 </div>
               </div>
               <div className="info-item">
-                <div className="info-icon">📞</div>
+                <div className="info-icon">
+                  <img src={phoneIcon} alt="Phone" />
+                </div>
                 <div className="info-content">
                   <h4>Phone:</h4>
-                  <p>+94 77 5338 747</p>
+                  <p>+94 77 5157 613</p>
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import presentationImg from '../assets/img/presentation.jpg';
 
 const Presentations = () => {
   const presentations = [
@@ -6,24 +7,25 @@ const Presentations = () => {
       icon: '🖥️',
       title: 'Proposal Presentation',
       description: 'Click to View the Proposal Presentation',
-      link: 'https://docs.google.com/presentation/d/1J3iNbjzTDqzbfIRpFAZPaQgmrQymKdfw/edit?usp=drive_link&ouid=104117928198051178525&rtpof=true&sd=true'
+      link: 'https://drive.google.com/file/d/1A6o83HFU9v9OQfl8-n4s8ad7KlHlhFKJ/view?usp=sharing'
     },
     {
       icon: '🖥️',
       title: 'Progress Presentation I',
       description: 'Click to View the Progress Presentation I - 50% Completion',
-      link: 'https://docs.google.com/presentation/d/1s5za3F2q4VcWOE5FKQQlliuh2IrHjF3h/edit?usp=drive_link&ouid=104117928198051178525&rtpof=true&sd=true'
+      link: 'https://drive.google.com/file/d/1FonxpEzelW5scO3fgJAz086H0jt7pELj/view?usp=sharing'
     },
     {
       icon: '🖥️',
       title: 'Progress Presentation II',
       description: 'Click to View the Progress Presentation II - 90% Completion',
-      link: 'https://drive.google.com/file/d/18M1fJEDXwhtQMevBsbb4XLjmHNJK97AW/view?usp=drive_link'
+      link: 'https://drive.google.com/file/d/18M1fJEDXwhtQMevBsbb4XLjmHNJK97AW/view?usp=sharing'
     },
     {
       icon: '🖥️',
       title: 'Final Presentation',
-      description: 'Click to View the Final Presentation'
+      description: 'Click to View the Final Presentation',
+      link: 'https://drive.google.com/file/d/1bWCqQr2A5K5-LCydpaUKlywWFQP7qXYx/view?usp=sharing'
     }
   ];
 
@@ -36,7 +38,7 @@ const Presentations = () => {
         </div>
         <div className="row">
           <div className="col-lg-6 presentation-image">
-            <img src="static/images/presentation.jpg" alt="Presentations" className="img-fluid" />
+            <img src={presentationImg} alt="Presentations" className="img-fluid" />
           </div>
           <div className="col-lg-6">
             <div className="presentation-list">
