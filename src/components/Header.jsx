@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
       const sections = ['home', 'about', 'scope', 'milestones', 'documentation', 'presentations', 'team', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -29,15 +30,27 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId) => {
+    setMobileMenuOpen(false);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'scope', label: 'Scope' },
+    { id: 'milestones', label: 'Milestones' },
+    { id: 'documentation', label: 'Documentation' },
+    { id: 'presentations', label: 'Presentations' },
+    { id: 'team', label: 'Our Team' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
   return (
-    <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
-      <div className="container">
+    <header className={`header ${isScrolled ? 'header-scrolled' : ''} ${mobileMenuOpen ? 'header-menu-open' : ''}`}>
+      <div className="container header-container">
         <h1 
           onClick={() => scrollToSection('home')} 
           style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}
@@ -45,63 +58,34 @@ const Header = () => {
           <img src="/favicon.svg" alt="LifeNova Logo" style={{ width: '28px', height: '28px', borderRadius: '7px' }} />
           LifeNova
         </h1>
-        <nav>
-          <a 
-            href="#home" 
-            className={activeSection === 'home' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
-          >
-            Home
-          </a>
-          <a 
-            href="#about" 
-            className={activeSection === 'about' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
-          >
-            About
-          </a>
-          <a 
-            href="#scope" 
-            className={activeSection === 'scope' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); scrollToSection('scope'); }}
-          >
-            Scope
-          </a>
-          <a 
-            href="#milestones" 
-            className={activeSection === 'milestones' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); scrollToSection('milestones'); }}
-          >
-            Milestones
-          </a>
-          <a 
-            href="#documentation" 
-            className={activeSection === 'documentation' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); scrollToSection('documentation'); }}
-          >
-            Documentation
-          </a>
-          <a 
-            href="#presentations" 
-            className={activeSection === 'presentations' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); scrollToSection('presentations'); }}
-          >
-            Presentations
-          </a>
-          <a 
-            href="#team" 
-            className={activeSection === 'team' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); scrollToSection('team'); }}
-          >
-            Our Team
-          </a>
-          <a 
-            href="#contact" 
-            className={activeSection === 'contact' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}
-          >
-            Contact
-          </a>
+
+        {/* Mobile Hamburger Toggle Button */}
+        <button 
+          className={`mobile-menu-toggle ${mobileMenuOpen ? 'open' : ''}`}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle navigation menu"
+          type="button"
+        >
+          <span className="hamburger-bar"></span>
+          <span className="hamburger-bar"></span>
+          <span className="hamburger-bar"></span>
+        </button>
+
+        {/* Navigation Menu */}
+        <nav className={`header-nav ${mobileMenuOpen ? 'mobile-visible' : ''}`}>
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={activeSection === item.id ? 'active' : ''}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(item.id);
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
       </div>
     </header>
