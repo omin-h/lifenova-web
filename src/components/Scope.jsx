@@ -113,95 +113,32 @@ const Scope = () => {
           <h2>Research Project Scope</h2>
           <p>Read our research domain details here</p>
         </div>
-        <div className="row gy-4">
-          <div className="col-lg-3">
-            <ul className="nav nav-tabs flex-column">
-              <li className="nav-item">
-                <button
-                  className={`nav-link${activeTab === 'literature' ? ' active' : ''}`}
-                  onClick={() => setActiveTab('literature')}
-                  style={
-                    activeTab === 'literature'
-                      ? { background: 'green', color: 'white', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                      : { background: 'none', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                  }
-                >
-                  <h5>📚 Literature Survey</h5>
-                </button>
-              </li>
-              <li className="nav-item">
-                <button
-                  className={`nav-link${activeTab === 'gap' ? ' active' : ''}`}
-                  onClick={() => setActiveTab('gap')}
-                  style={
-                    activeTab === 'gap'
-                      ? { background: 'green', color: 'white', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                      : { background: 'none', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                  }
-                >
-                  <h5>🔍 Research Gap</h5>
-                </button>
-              </li>
-              <li className="nav-item">
-                <button
-                  className={`nav-link${activeTab === 'problem' ? ' active' : ''}`}
-                  onClick={() => setActiveTab('problem')}
-                  style={
-                    activeTab === 'problem'
-                      ? { background: 'green', color: 'white', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                      : { background: 'none', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                  }
-                >
-                  <h5>❓ Research Problem</h5>
-                </button>
-              </li>
-              <li className="nav-item">
-                <button
-                  className={`nav-link${activeTab === 'objectives' ? ' active' : ''}`}
-                  onClick={() => setActiveTab('objectives')}
-                  style={
-                    activeTab === 'objectives'
-                      ? { background: 'green', color: 'white', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                      : { background: 'none', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                  }
-                >
-                  <h5>🎯 Objectives</h5>
-                </button>
-              </li>
-              <li className="nav-item">
-                <button
-                  className={`nav-link${activeTab === 'methodology' ? ' active' : ''}`}
-                  onClick={() => setActiveTab('methodology')}
-                  style={
-                    activeTab === 'methodology'
-                      ? { background: 'green', color: 'white', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                      : { background: 'none', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                  }
-                >
-                  <h5>⚙️ Methodology</h5>
-                </button>
-              </li>
-              <li className="nav-item">
-                <button
-                  className={`nav-link${activeTab === 'tools' ? ' active' : ''}`}
-                  onClick={() => setActiveTab('tools')}
-                  style={
-                    activeTab === 'tools'
-                      ? { background: 'green', color: 'white', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                      : { background: 'none', border: 'none', padding: 0, textAlign: 'left', width: '100%' }
-                  }
-                >
-                  <h5>🛠️ Tools & Technologies</h5>
-                </button>
-              </li>
-            </ul>
-          </div>
-          <div className="col-lg-9">
-            <div className="tab-content">
-              <div className="tab-pane active">
-                {tabContent[activeTab]}
-              </div>
-            </div>
+        {/* Horizontal Navigation Buttons above the text box */}
+        <div className="scope-tabs-nav">
+          {[
+            { id: 'literature', icon: '📚', label: 'Literature Survey' },
+            { id: 'gap', icon: '🔍', label: 'Research Gap' },
+            { id: 'problem', icon: '❓', label: 'Research Problem' },
+            { id: 'objectives', icon: '🎯', label: 'Objectives' },
+            { id: 'methodology', icon: '⚙️', label: 'Methodology' },
+            { id: 'tools', icon: '🛠️', label: 'Tools & Technologies' }
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              className={`scope-tab-btn ${activeTab === tab.id ? 'active' : ''}`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              <span className="scope-tab-icon">{tab.icon}</span>
+              <span className="scope-tab-label">{tab.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Scope Text Box below the horizontal buttons */}
+        <div className="scope-content-box">
+          <div className="tab-pane active">
+            {tabContent[activeTab]}
           </div>
         </div>
       </div>

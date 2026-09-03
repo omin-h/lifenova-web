@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import './App.css';
 import './styles/components.css';
 import Header from './components/Header';
@@ -8,7 +8,6 @@ import Scope from './components/Scope';
 import Milestones from './components/Milestones';
 import Documentation from './components/Documentation';
 import Presentations from './components/Presentations';
-import Banner from './components/Banner';
 import Team from './components/Team';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -23,7 +22,6 @@ function App() {
       <Milestones />
       <Documentation />
       <Presentations />
-      <Banner />
       <Team />
       <Contact />
       <Footer />

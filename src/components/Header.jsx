@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'scope', 'milestones', 'documentation', 'presentations', 'banner', 'team', 'contact'];
+      setIsScrolled(window.scrollY > 30);
+      const sections = ['home', 'about', 'scope', 'milestones', 'documentation', 'presentations', 'team', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -34,12 +36,13 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
       <div className="container">
         <h1 
           onClick={() => scrollToSection('home')} 
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}
         >
+          <img src="/favicon.svg" alt="LifeNova Logo" style={{ width: '28px', height: '28px', borderRadius: '7px' }} />
           LifeNova
         </h1>
         <nav>
@@ -84,13 +87,6 @@ const Header = () => {
             onClick={(e) => { e.preventDefault(); scrollToSection('presentations'); }}
           >
             Presentations
-          </a>
-          <a 
-            href="#banner" 
-            className={activeSection === 'banner' ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); scrollToSection('banner'); }}
-          >
-            Banner
           </a>
           <a 
             href="#team" 

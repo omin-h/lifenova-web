@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Nova: Voice-Enabled Intelligent Diary System for Enhancing Productivity and Accessibility of Visually Impaired Professionals</title>
+  <style>
+    :root {
+      --primary: #178178;
+      --primary-dark: #105953;
+      --text: #2c3e50;
+      --text-muted: #556677;
+      --bg: #f8fafc;
+      --paper-bg: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .toolbar-left, .toolbar-right {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #f1f5f9;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .paper-container {
+      max-width: 900px;
+      margin: 32px auto;
+      background: var(--paper-bg);
+      padding: 64px 56px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      border-radius: 4px;
+    }
+
+    .paper-header {
+      text-align: center;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+
+    .paper-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 24px;
+      line-height: 1.3;
+      text-transform: capitalize;
+    }
+
+    .authors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+
+    .author-block {
+      text-align: center;
+    }
+
+    .author-name {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .author-affiliation, .author-email {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .author-email {
+      font-style: italic;
+    }
+
+    .abstract-box {
+      margin: 24px 0;
+      padding: 16px 20px;
+      background: #f8fafc;
+      border-left: 3px solid var(--primary);
+      font-size: 14px;
+      text-align: justify;
+    }
+
+    .abstract-box strong {
+      font-size: 14px;
+    }
+
+    .keywords {
+      margin-top: 10px;
+      font-size: 13px;
+      font-style: italic;
+    }
+
+    .paper-content {
+      column-count: 2;
+      column-gap: 36px;
+      column-rule: 1px solid #f1f5f9;
+      text-align: justify;
+      font-size: 13.5px;
+    }
+
+    h2.section-heading {
+      font-size: 15px;
+      text-align: center;
+      text-transform: uppercase;
+      margin: 20px 0 10px 0;
+      break-after: avoid;
+      letter-spacing: 0.5px;
+    }
+
+    h3.sub-heading {
+      font-size: 14px;
+      font-style: italic;
+      margin: 14px 0 6px 0;
+      break-after: avoid;
+    }
+
+    p {
+      text-indent: 1.5em;
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .no-indent {
+      text-indent: 0;
+    }
+
+    .metric-badge-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 12px;
+    }
+
+    .metric-badge-table th, .metric-badge-table td {
+      border: 1px solid #e2e8f0;
+      padding: 6px 10px;
+      text-align: left;
+    }
+
+    .metric-badge-table th {
+      background: #f1f5f9;
+      font-weight: bold;
+    }
+
+    .references {
+      font-size: 11px;
+      line-height: 1.4;
+      margin-top: 20px;
+      column-span: all;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .reference-item {
+      margin-bottom: 6px;
+      text-indent: -1.8em;
+      margin-left: 1.8em;
+    }
+
+    @media print {
+      .toolbar {
+        display: none;
+      }
+      body {
+        background: white;
+      }
+      .paper-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+      .paper-content {
+        column-count: 2;
+        column-gap: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .paper-container {
+        padding: 24px 16px;
+        margin: 12px;
+      }
+      .paper-content {
+        column-count: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="toolbar">
+    <div class="toolbar-left">
+      <a href="/" class="btn">← Back to LifeNova</a>
+      <span style="font-weight: 600; font-size: 14px; color: #178178;">LifeNova Research Publication</span>
+    </div>
+    <div class="toolbar-right">
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+  </header>
+
+  <main class="paper-container">
+    <div class="paper-header">
+      <h1 class="paper-title">Life Nova: Voice-Enabled Intelligent Diary System for Enhancing Productivity and Accessibility of Visually Impaired Professionals</h1>
+
+      <div class="authors-grid">
+        <div class="author-block">
+          <div class="author-name">Hemapriya K.K.V.O.D</div>
+          <div class="author-affiliation">Faculty of Computing<br>Sri Lanka Institute of Information Technology</div>
+          <div class="author-email">omindulnath@gmail.com</div>
+        </div>
+        <div class="author-block">
+          <div class="author-name">Herath H.M.D.P</div>
+          <div class="author-affiliation">Faculty of Computing<br>Sri Lanka Institute of Information Technology</div>
+          <div class="author-email">dunalherath23@gmail.com</div>
+        </div>
+        <div class="author-block">
+          <div class="author-name">Idamewaththa I.W.S.M.B</div>
+          <div class="author-affiliation">Faculty of Computing<br>Sri Lanka Institute of Information Technology</div>
+          <div class="author-email">sachiramihidul@gmail.com</div>
+        </div>
+        <div class="author-block">
+          <div class="author-name">Anuruddhika S.K.D</div>
+          <div class="author-affiliation">Faculty of Computing<br>Sri Lanka Institute of Information Technology</div>
+          <div class="author-email">danuruddika20@gmail.com</div>
+        </div>
+        <div class="author-block">
+          <div class="author-name">Samantha Rajapaksha</div>
+          <div class="author-affiliation">Supervisor & Head of Department<br>Sri Lanka Institute of Information Technology</div>
+          <div class="author-email">samantha.r@sliit.lk</div>
+        </div>
+        <div class="author-block">
+          <div class="author-name">Aparna Jayawardena</div>
+          <div class="author-affiliation">Co-Supervisor & Assistant Lecturer<br>Sri Lanka Institute of Information Technology</div>
+          <div class="author-email">aparna.j@sliit.lk</div>
+        </div>
+      </div>
+
+      <div class="abstract-box">
+        <p class="no-indent">
+          <strong><em>Abstract</em>—In the growing era of mobile technology, numerous applications help people enhance productivity and reduce stress. However, visually impaired individuals often miss these opportunities due to the lack of proper accessibility features. To address this gap, this research introduces LifeNova, a fully voice-controlled intelligent diary mobile application designed to enhance productivity, accessibility, and emotional well-being. LifeNova integrates four intelligent components: a voice-based learning goal generator and tracker, a smart scheduling engine, a context-aware task prioritization system, and a multimodal stress detection module using voice and app-usage behavior. By combining speech recognition, natural language understanding, and machine learning, the system allows users to manage their tasks and wellness entirely through voice interaction. Experimental evaluations demonstrate improved accessibility, reduced cognitive effort, and better daily management for visually impaired professionals.</strong>
+        </p>
+        <div class="keywords">
+          <strong><em>Keywords</em></strong>—Voice-enabled system, Accessibility, visually impaired professionals, Intelligent diary, Productivity enhancement, Context-aware computing, Stress detection, Smart scheduling.
+        </div>
+      </div>
+    </div>
+
+    <div class="paper-content">
+      <h2 class="section-heading">I. Introduction</h2>
+      <p>
+        Balancing emotional and physical well-being is essential for all professionals, especially those working in demanding environments. For visually impaired individuals, this balance becomes even more challenging due to the lack of accessible tools that support organization, learning, and mental wellness [1]. Existing productivity and learning management applications often neglect accessibility, making it difficult for visually impaired users to manage time, pursue learning goals, and maintain motivation [2].
+      </p>
+      <p>
+        This research introduces LifeNova, a voice-enabled intelligent diary system designed to enhance the productivity and well-being of visually impaired professionals. Through natural voice interaction, users can set personal learning goals, track progress, and receive adaptive suggestions for scheduling and stress management. LifeNova intelligently combines goal generation, context-aware task prioritization, smart scheduling, and stress detection to deliver a personalized and accessible productivity experience.
+      </p>
+      <p>
+        The primary objective of this research is to empower visually impaired professionals to live more structured, independent, and balanced lives. By integrating intelligent learning, contextual awareness, and emotional well-being into one system, LifeNova bridges the gap between assistive technology and proactive digital productivity tools [3].
+      </p>
+
+      <h2 class="section-heading">II. Literature Review</h2>
+      <p>
+        Technology has become an inseparable part of human life, improving efficiency, organization, and communication. However, digital systems often introduce accessibility challenges that limit their ability to manage information independently. The integration of voice-based interfaces has become an effective solution to enhance inclusivity. Masina et al. [4] showed that voice assistants enable hands-free interaction for users with physical and cognitive limitations, emphasizing that careful conversational design can improve accessibility. Likewise, Senjam et al. [5] analyzed smartphone-based assistive technologies for visually impaired users, identifying voice control and screen readers as essential tools but highlighting usability and learning barriers that still hinder adoption.
+      </p>
+      <p>
+        Beyond accessibility, digital diaries support organization, reflection, and well-being. Earlier systems such as Zhou et al.’s From Lifelog to Diary [6] transformed sensor data into chronological timelines to help users revisit their daily experiences. However, these diaries mainly recorded information rather than generating meaningful insights. Xu et al. [7] later introduced AutoLife, which combined smartphone sensors with large language models (LLMs) to automatically generate coherent daily journal entries, demonstrating the potential of contextual data for narrative generation.
+      </p>
+      <p>
+        Despite these advancements, most prior works focus on either accessibility or automatic journaling, rarely combining both to offer context-aware, actionable assistance. Existing systems lack personalized planning and emotional intelligence features that support user well-being. Furthermore, as noted by Senjam et al. [5], productivity tools often overlook the unique needs of visually impaired professionals, resulting in limited real-world effectiveness.
+      </p>
+      <p>
+        The proposed Voice-Enabled Intelligent Diary System addresses these gaps by integrating voice interaction, automatic diary creation, context-aware task prioritization, stress detection, and smart scheduling into one unified framework.
+      </p>
+
+      <h2 class="section-heading">III. Methodology</h2>
+      <p>
+        The methodology of this research is centered around designing an intelligent, voice-driven diary system that supports visually impaired users in managing their daily routines and improving their quality of life. The system begins by collecting real-time data from various mobile sensors, including voice input, location, motion, app usage, and calendar events and SMS data.
+      </p>
+
+      <h3 class="sub-heading">A. Personalized Learning Goal Generating, Scheduling and Progress Tracking</h3>
+      <p>
+        This component assists visually impaired professionals in converting spoken learning intentions into adaptive and stress-aware study plans. The process begins when the user provides voice input such as “I want to learn to speak English.” The audio is converted to text using the Deepgram Speech-to-Text (STT) API, while concurrently analyzed by the voice stress detection model to gauge stress levels.
+      </p>
+      <p>
+        The transcribed goal text is sent to the LLaMA 3.3 70B model via Groq API, which generates structured sub-goals in JSON format with difficulty and priority levels. Next, contextual data (Stress data, Calendar busy slots, Behavioral progress) feeds into a Personalized Learning Scheduling Algorithm integrating the Spacing Effect [8], Work-Life Balance [9], Cognitive Load Theory [10], Pomodoro technique [12], Circadian rhythm optimization [14], Self-Efficacy Theory [16], and Ultradian Rhythm-based recovery breaks [17]. Lessons are delivered via Text-to-Speech (TTS) for complete hands-free interaction.
+      </p>
+
+      <h3 class="sub-heading">B. Detect Stress Levels Using Voice and App Usage Data</h3>
+      <p>
+        This component presents a multi-modal stress detection and personalized wellness recommendation system. Voice notes recorded by the user are sent to a Flask backend, converted to .wav, and processed with Librosa. 13 Mel-Frequency Cepstral Coefficients (MFCCs) are extracted from 3-second clips and fed into a 1-D Convolutional Neural Network (CNN) built with TensorFlow/Keras, classifying voice into Negative (Stressed), Neutral, and Positive (Relaxed) tones.
+      </p>
+      <p>
+        Concurrently, mobile app-usage parameters (daily usage time, installed apps count, OS) are analyzed by a Scikit-learn Random Forest Classifier predicting behavioral stress on a 1–5 scale. Both outputs are merged via semantic fusion powered by Google Gemini 2.5 Flash LLM, generating empathetic, actionable audio suggestions.
+      </p>
+
+      <h3 class="sub-heading">C. Real-Time Adaptive SMART Scheduling System</h3>
+      <p>
+        This component transforms incoming SMS messages into actionable calendar events. Text passes through a spam filter (DistilBERT), intent detection (RoBERTa), and Named-Entity Recognition (BERT-NER) extracting date, time, location, and participants. Temporal expressions are normalized to ISO datetime formats.
+      </p>
+      <p>
+        The Weighted Confidence Fusion Decision Algorithm (WCFDA) combines confidence scores from all submodules into a unified decision value, autonomously scheduling high-confidence items, asking for voice confirmation for medium confidence, and filtering out low-confidence messages.
+      </p>
+
+      <h3 class="sub-heading">D. Context-Aware Information Retrieval and Task Prioritization</h3>
+      <p>
+        This framework ranks tasks dynamically based on time, location, user activity, and cognitive load. Zero-shot classification (BART-large-MNLI) infers semantic place types for tasks, which are matched with real-time GPS and Google Places API data.
+      </p>
+      <p>
+        A custom dynamic weighting algorithm computes priority by combining exponential temporal discounting, Tobler's Law of Spatial Decay, activity compatibility, and cognitive load. When top priority tasks require travel, navigation links are generated automatically through the Google Maps API for turn-by-turn guidance.
+      </p>
+
+      <h2 class="section-heading">IV. Experiments and Results</h2>
+      <p>
+        The system was extensively evaluated across its four core modules with visually impaired professionals:
+      </p>
+      <ul style="padding-left: 20px; margin-bottom: 12px;">
+        <li><strong>Learning Goal Module:</strong> Achieved <strong>91% accuracy</strong> in sub-goal generation and a <strong>4.7 / 5.0</strong> user satisfaction score. Schedule generation latency averaged ~13 seconds.</li>
+        <li><strong>Stress Detection:</strong> 1-D CNN achieved <strong>91% accuracy (F1: 0.89)</strong> on audio stress classification (RAVDESS/TESS datasets). Random Forest achieved <strong>87% accuracy (F1: 0.86)</strong> on app-usage stress. Semantic fusion demonstrated <strong>~89% agreement</strong> with ground truth, and <strong>>90%</strong> of users rated audio guidance as clear and empathetic.</li>
+        <li><strong>SMART Scheduling:</strong> Achieved <strong>94.1% overall scheduling accuracy</strong> via WCFDA (+7.4% over non-fusion baseline). DistilBERT spam filter reached 96.2% accuracy; intent detection achieved 93.7%; entity extraction achieved 90.4% F1-score; temporal parsing reached 88.6% precision. Redundant confirmations dropped by 31% and latency by 28%.</li>
+        <li><strong>Task Prioritization:</strong> Achieved <strong>83% contextual relevance accuracy</strong> with rapid response times (2.1 to 13 seconds) across varied mobility and stationary user scenarios.</li>
+      </ul>
+
+      <h2 class="section-heading">V. Conclusion and Future Work</h2>
+      <p>
+        This research introduced LifeNova, an intelligent voice-enabled diary system designed to assist visually impaired professionals in managing daily activities, generating and scheduling learning goals, and monitoring stress. By combining speech recognition, large language models, machine learning, and cognitive psychology principles, LifeNova provides a hands-free, empathetic, and scientifically grounded assistive productivity platform.
+      </p>
+    </div>
+
+    <div class="references">
+      <h2 class="section-heading" style="text-align: left; margin-bottom: 15px;">References</h2>
+      <div class="reference-item">[1] S. Sharma and R. Gupta, "A Smart Assistant for Mental Health and Productivity Enhancement," <em>IJERT</em>, vol. 11, no. 3, pp. 200–205, 2022.</div>
+      <div class="reference-item">[2] P. Kumar, A. Mehta, and R. Verma, "Technological Advancements and Mental Stress: A Double-Edged Sword," <em>IEEE Access</em>, vol. 10, pp. 10123–10131, 2022.</div>
+      <div class="reference-item">[3] D. Patel, "Digital Wellbeing and Work-Life Balance: Challenges in the Modern Era," <em>J. Human-Centered Computing</em>, vol. 9, no. 2, pp. 87–95, 2021.</div>
+      <div class="reference-item">[4] F. Masina et al., "Investigating the accessibility of voice assistants with users with motor, linguistic, and cognitive disabilities," <em>JMIR</em>, vol. 22, no. 9, 2020.</div>
+      <div class="reference-item">[5] S. S. Senjam, S. Manna, and C. Bascaran, "Smartphones-based assistive technology: accessibility features and apps for people with visual impairment," <em>Clinical Optometry</em>, vol. 13, pp. 311–322, 2021.</div>
+      <div class="reference-item">[6] L. M. Zhou, Y. Cheng, C. Gurrin, and Z. Qiu, "From lifelog to diary: a timeline view for memory reminiscence," in <em>Proc. iHCI</em>, 2013.</div>
+      <div class="reference-item">[7] H. Xu, P. Tong, M. Li, and M. Srivastava, "AutoLife: Automatic life journaling with smartphones and LLMs," <em>arXiv:2412.15714</em>, 2024.</div>
+      <div class="reference-item">[8] N. J. Cepeda et al., "Distributed practice in verbal recall tasks," <em>Psychological Bulletin</em>, vol. 132, no. 3, 2006.</div>
+      <div class="reference-item">[10] J. Sweller, "Cognitive load during problem solving," <em>Cognitive Science</em>, vol. 12, no. 2, 1988.</div>
+      <div class="reference-item">[18] S. Latif et al., "Speech-based stress detection using deep learning," <em>IEEE Access</em>, vol. 7, 2019.</div>
+      <div class="reference-item">[20] S. Memon, A. Khan, and R. Abbas, "Smartphone usage and stress correlation via machine learning," in <em>Proc. IEEE ICMLA</em>, 2022.</div>
+      <div class="reference-item">[22] Google AI, "Gemini 2.5 technical overview," Google DeepMind Research Blog, 2024.</div>
+      <div class="reference-item">[29] O. Wijerathne et al., "ScheduleMe: Multi-Agent Calendar Assistant," <em>arXiv:2509.25693v1</em>, 2025.</div>
+      <div class="reference-item">[31] Y. Yin et al., "Zero-Shot Text Classification via Knowledge Graph Embedding," <em>IEEE Access</em>, 2021.</div>
+      <div class="reference-item">[36] W. Tobler, "A Computer Movie Simulating Urban Growth in the Detroit Region," <em>Economic Geography</em>, 1970.</div>
+    </div>
+  </main>
+
+</body>
+</html>

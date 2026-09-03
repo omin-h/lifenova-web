@@ -73,6 +73,7 @@ const Team = () => {
       <div className="container">
         <div className="section-title">
           <h2>Our Team</h2>
+          <p>Supervisors and Researchers from SLIIT Faculty of Computing</p>
         </div>
         <div className="team-grid">
           {teamMembers.map((member, index) => (
